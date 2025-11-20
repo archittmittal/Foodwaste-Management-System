@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validator Test</title>
+    <style>body{font-family:system-ui,Arial;padding:20px}input{display:block;margin:8px 0;padding:8px;width:320px}</style>
+  </head>
+  <body>
+    <h2>Validator quick test</h2>
+    <label>Email</label>
+    <input id="tEmail" placeholder="you@gmail.com">
+    <div id="tEmailRes"></div>
+    <label>Password</label>
+    <input id="tPwd" type="password" placeholder="P@ssw0rd!">
+    <div id="tPwdRes"></div>
+
+    <script type="module">
+      import { isValidEmailFormat, isGmailAddress, isStrongPassword } from './validators.js'
+      const e = document.getElementById('tEmail')
+      const p = document.getElementById('tPwd')
+      const er = document.getElementById('tEmailRes')
+      const pr = document.getElementById('tPwdRes')
+      function update(){
+        const val = e.value
+        er.textContent = isValidEmailFormat(val) ? (isGmailAddress(val) ? 'Valid Gmail' : 'Valid non-Gmail') : 'Invalid email'
+        pr.textContent = isStrongPassword(p.value) ? 'Strong password' : 'Weak password (8+ chars, upper, lower, digit, special)'
+      }
+      e.addEventListener('input', update)
+      p.addEventListener('input', update)
+      update()
+    </script>
+  </body>
+</html>

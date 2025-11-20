@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup - Food Share</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <svg class="leaf" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 20c6-2 10-8 16-12" stroke="#2f9e44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 2c4 2 6 6 6 10" stroke="#60a860" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h1>WasteNot</h1>
+        </div>
+        <nav class="top-nav">
+          <a href="/index.html">Home</a>
+        </nav>
+        <div class="user-info"></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h2>Signup</h2>
+      <form id="signupForm">
+        <label>Email</label>
+        <input type="email" id="email" required />
+        <div id="emailHelp" class="muted" style="font-size:13px;margin-top:4px"></div>
+        <label>Full Name</label>
+        <input type="text" id="fullName" required />
+        <label>Address</label>
+        <input type="text" id="address" required />
+        <label>City</label>
+        <input type="text" id="city" required />
+        <label>Pincode</label>
+        <input type="text" id="pincode" required />
+        <label>Password</label>
+        <input type="password" id="password" required />
+        <div id="pwdHelp" class="muted" style="font-size:13px;margin-top:4px"></div>
+        <p class="muted">After login you can choose to act as a donor or a receiver from the dashboard.</p>
+        <button type="submit" id="signupBtn">Signup</button>
+      </form>
+      <p class="muted" style="margin-top:10px">Already have an account? <a href="/login.html">Login</a></p>
+      <div id="msg"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div>Developed by Archit Mittal and team</div>
+    </footer>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

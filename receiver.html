@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receiver Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+''    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <svg class="leaf" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 20c6-2 10-8 16-12" stroke="#2f9e44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 2c4 2 6 6 6 10" stroke="#60a860" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h1>WasteNot</h1>
+        </div>
+        <nav class="top-nav">
+          <a href="/index.html">Home</a>
+        </nav>
+        <div class="user-info"></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h2>Receiver Dashboard</h2>
+      <p class="muted">Items sorted by expiry (hours) ascending — sorted using a DSA module if available.</p>
+      <div id="wasm-status" style="margin-top:8px"></div>
+      <div id="list" style="margin-top:12px"></div>
+      <div style="margin-top:12px">
+        <button id="logout" class="secondary">Logout</button>
+      </div>
+      <div id="msg" style="margin-top:12px"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div>Developed by Archit Mittal and team</div>
+    </footer>
+    <script src="/wasm_sort.js"></script>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

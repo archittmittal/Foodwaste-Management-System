@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WasteNot</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body class="index-no-scroll">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <svg class="leaf" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 20c6-2 10-8 16-12" stroke="#2f9e44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 2c4 2 6 6 6 10" stroke="#60a860" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h1>WasteNot</h1>
+        </div>
+        <nav class="top-nav">
+          <a href="/index.html">Home</a>
+          <a href="/signup.html">Signup</a>
+        </nav>
+        <div class="user-info"></div>
+      </div>
+    </header>
+
+    <main class="home-hero" role="main">
+      <section class="hero centered">
+        <div class="left">
+          <h2>WasteNot — Reduce. Reuse. Share.</h2>
+          <p class="lead">We're on a mission to reduce food waste by connecting donors with receivers in real-time. Donate surplus food and help your community while protecting the planet.</p>
+
+          <div class="cta">
+            <a href="/signup.html" class="links">Get Started</a>
+            <a href="/dashboard.html" class="links">Open Dashboard</a>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat">
+              <div class="num" data-target="1240">0</div>
+              <div class="label">Meals Served</div>
+            </div>
+            <div class="stat">
+              <div class="num" data-target="860">0</div>
+              <div class="label">Happy Recipients</div>
+            </div>
+            <div class="stat">
+              <div class="num" data-target="230">0</div>
+              <div class="label">Active Donors</div>
+            </div>
+          </div>
+
+          <div class="taglist" style="margin-top:12px">
+            <div class="tag">No Waste</div>
+            <div class="tag">Community</div>
+            <div class="tag">Sustainable</div>
+            <div class="tag">Donate</div>
+          </div>
+
+          <div style="margin-top:14px;color:var(--muted);font-size:13px">Our Mission: WasteNot builds a local network to redistribute surplus food quickly — reduce waste, help neighbours.</div>
+        </div>
+
+        <div class="right">
+          <div class="gallery">
+            <img src="image1.jpg" alt="meal">
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div style="text-align:center;padding:16px;color:var(--muted);font-size:13px">Developed by Archit Mittal and team</div>
+    </footer>
+
+    <script>
+      // counter animation
+      document.addEventListener('DOMContentLoaded', ()=>{
+        const nums = document.querySelectorAll('.num')
+        nums.forEach(el=>{
+          const target = parseInt(el.dataset.target,10) || 0
+          let cur = 0
+          const step = Math.max(1, Math.floor(target/100))
+          const iv = setInterval(()=>{
+            cur += step
+            if(cur >= target){ el.textContent = target; clearInterval(iv) }
+            else el.textContent = cur
+          }, 12)
+        })
+      })
+    </script>
+
+    <!-- Firebase and app scripts -->
+    <script src="/firebase-config.js"></script>
+    <script src="/wasm_sort.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
