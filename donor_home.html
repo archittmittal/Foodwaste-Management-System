@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donor Dashboard | WasteNot</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <nav>
+    <h1>🌱 WasteNot</h1>
+    <ul>
+      <li><a href="#">Add Food</a></li>
+      <li><a href="#">My Donations</a></li>
+      <li><a href="#">History</a></li>
+      <li><a href="index.html" class="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h2>Welcome, Donor!</h2>
+    <p>Thank you for helping reduce food waste and make a difference 🌍</p>
+  </section>
+
+  <section class="form-section">
+    <h3>Add Food Donation</h3>
+    <form id="addFoodForm">
+      <input type="text" id="foodName" placeholder="Food Name" required />
+      <input type="number" id="quantity" placeholder="Quantity (kg/packets)" required />
+      <input type="date" id="expiry" required />
+      <button type="submit">Submit Donation</button>
+    </form>
+  </section>
+
+  <section class="list-section">
+    <h3>My Donations</h3>
+    <ul id="donationList"></ul>
+  </section>
+
+  <script>
+    const form = document.getElementById("addFoodForm");
+    const donationList = document.getElementById("donationList");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const food = document.getElementById("foodName").value;
+      const qty = document.getElementById("quantity").value;
+      const exp = document.getElementById("expiry").value;
+
+      const li = document.createElement("li");
+      li.innerHTML = `<strong>${food}</strong> - ${qty} units (Expires: ${exp})`;
+      donationList.appendChild(li);
+      form.reset();
+    });
+  </script>
+</body>
+</html>

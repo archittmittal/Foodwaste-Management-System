@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WasteNot | Intelligent Food Rescue</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="form-container">
+      <h1 class="logo">🌱 WasteNot</h1>
+      <p class="tagline">Rescue Food • Reduce Waste • Feed Hope</p>
+
+      <div class="brand-divider"></div>
+
+      <div class="toggle-buttons">
+        <button id="loginBtn" class="active">Login</button>
+        <button id="signupBtn"><a href="sign-up.html"><span>Signup</span></a></button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="form active" method="POST" action="/login">
+        <div class="role-select">
+          <label><input type="radio" name="role" value="donor" checked> Donor</label>
+          <label><input type="radio" name="role" value="receiver"> Receiver</label>
+        </div>
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+        <p class="switch-text">Don't have an account? <a href="sign-up.html"><span>Signup here</span></a></p>
+      </form>
+    </div>
+
+    <div class="info-side">
+      <div class="overlay"></div>
+      <div class="info-content">
+        <h2>Join the Movement</h2>
+        <p>
+          WasteNot bridges the gap between surplus and scarcity. Whether you're a donor, restaurant, or receiver — 
+          together we make sure food finds a plate, not a bin.
+        </p>
+        <ul>
+          <li>🌾 Smart Food Matching</li>
+          <li>🚚 Real-Time Tracking</li>
+          <li>💚 Sustainable Communities</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 <span>WasteNot</span> | Built with 💚 to fight food waste</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

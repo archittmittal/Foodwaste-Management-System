@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup | WasteNot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h3 class="logo">🌱 WasteNot</h3>
+    <p class="tagline">Join the mission to rescue food and reduce waste!</p>
+
+    <form id="signupForm" class="form active" method="POST" action="/signup">
+      <div class="role-select">
+        <label><input type="radio" name="role" value="donor" checked> Donor</label>
+        <label><input type="radio" name="role" value="receiver"> Receiver</label>
+      </div>
+
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <input type="text" name="organization" placeholder="Organization (optional)" />
+      <input type="text" name="location" placeholder="Location" required />
+
+      <button type="submit">Sign Up</button>
+
+      <p class="switch-text">
+        Already have an account? <a href="index.html"><span>Login here</span></a>
+      </p>
+    </form>
+  </div>
+
+  <script>
+    const signupForm = document.getElementById("signupForm");
+
+    signupForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(signupForm);
+      const data = Object.fromEntries(formData.entries());
+
+      const res = await fetch("/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        alert("Signup successful!");
+        if (data.role === "donor") {
+          window.location.href = "donor_dashboard.html";
+        } else {
+          window.location.href = "receiver_dashboard.html";
+        }
+      } else {
+        alert(result.message || "Signup failed. Try again.");
+      }
+    });
+  </script>
+</body>
+</html>

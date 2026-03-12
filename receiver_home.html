@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receiver Dashboard | WasteNot</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <nav>
+    <h1>🌱 WasteNot</h1>
+    <ul>
+      <li><a href="#">Request Food</a></li>
+      <li><a href="#">Available Donations</a></li>
+      <li><a href="#">History</a></li>
+      <li><a href="index.html" class="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h2>Welcome, Receiver!</h2>
+    <p>Find and request surplus food donations in your area 🍽️</p>
+  </section>
+
+  <section class="form-section">
+    <h3>Request Food</h3>
+    <form id="requestForm">
+      <input type="text" id="foodType" placeholder="Food Type Needed" required />
+      <input type="number" id="quantityReq" placeholder="Required Quantity" required />
+      <input type="text" id="location" placeholder="Your Location" required />
+      <button type="submit">Submit Request</button>
+    </form>
+  </section>
+
+  <section class="list-section">
+    <h3>Available Donations</h3>
+    <ul id="availableList">
+      <li><strong>Rice</strong> - 10kg (Expires: 13 Oct)</li>
+      <li><strong>Bread</strong> - 25 packets (Expires: 12 Oct)</li>
+    </ul>
+  </section>
+
+  <script>
+    const requestForm = document.getElementById("requestForm");
+    requestForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const food = document.getElementById("foodType").value;
+      const qty = document.getElementById("quantityReq").value;
+      const loc = document.getElementById("location").value;
+      alert(`Request submitted for ${qty} units of ${food} at ${loc}!`);
+      requestForm.reset();
+    });
+  </script>
+</body>
+</html>
