@@ -124,13 +124,33 @@ graph TD
 
 ---
 
-## 📦 Features
 
-- Donor and receiver signup/login
-- Donor dashboard: add/view donations
-- Receiver dashboard: view/request food
-- Secure session management
-- MySQL data storage
+### 📦 Features
+
+- **Role-based Access:** Separate dashboards for donors and receivers
+- **Easy Signup/Login:** Quick registration and authentication
+- **Add Food Donations:** Donors can add surplus food with expiry and quantity
+- **View & Manage Donations:** Donors track their donation history
+- **Request Food:** Receivers can request food based on need and location
+- **Browse Available Donations:** Receivers see real-time available food
+- **Session Security:** User sessions managed securely with Flask
+- **Data Storage:** All user and food data stored in MySQL
+- **Responsive UI:** Clean, modern interface for all devices
+
+---
+
+### 💡 Usage Examples
+
+- **Donor:**
+	- Login, add a new food donation (e.g., "Bread, 20 packets, expires tomorrow")
+	- View your donation history and see which items are still available
+- **Receiver:**
+	- Login, browse available food donations in your area
+	- Submit a request for "Rice, 5kg, needed at XYZ location"
+- **Admin (optional):**
+	- Monitor donation and request statistics (feature can be added)
+
+---
 
 ---
 
