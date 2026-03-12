@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Food Share</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <svg class="leaf" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 20c6-2 10-8 16-12" stroke="#2f9e44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 2c4 2 6 6 6 10" stroke="#60a860" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h1>WasteNot</h1>
+        </div>
+        <nav class="top-nav">
+          <a href="/index.html">Home</a>
+        </nav>
+        <div class="user-info"></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h2>Dashboard</h2>
+      <div>
+        <label>Act as:</label>
+        <select id="roleSelect">
+          <option value="donor">Donor</option>
+          <option value="receiver">Receiver</option>
+        </select>
+      </div>
+
+      <div id="donorView" style="display:none; margin-top:12px;">
+        <h3>Donor: Add Food</h3>
+        <form id="foodForm">
+          <label>Food Name</label>
+          <input type="text" id="name" required />
+          <label>Quantity(grams or kg)</label>
+          <input type="text" id="quantity" required />
+          <label>Expiry (days)</label>
+          <input type="text" id="expiry" required />
+          <label>Expiry (hours) </label>
+          <input type="number" id="expiryHours" required />
+          <label>Pickup Location (City)</label>
+          <input type="text" id="pickupLocation" placeholder="e.g., Mumbai, Delhi" required />
+          <button type="submit">Add Food Item</button>
+        </form>
+
+        <h4 style="margin-top:20px;">Your Donations</h4>
+        <div id="myList">No donations yet.</div>
+      </div>
+
+      <div id="receiverView" style="display:none; margin-top:12px;">
+        <h3>Receiver: Available Foods</h3>
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:8px">
+          <div id="wasm-status" style="font-size:13px;color:var(--muted)"></div>
+          <button id="refreshList" class="secondary">Refresh</button>
+          <div id="fetchInfo" class="muted" style="font-size:13px"></div>
+        </div>
+        <div id="list"></div>
+        <pre id="debugFoods" style="display:none !important"></pre>
+      </div>
+
+      <div style="margin-top:12px">
+        <button id="logout" class="secondary">Logout</button>
+      </div>
+      <div id="msg" style="margin-top:12px"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div>Developed by Archit Mittal and team</div>
+    </footer>
+    <script src="/wasm_sort.js"></script>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
