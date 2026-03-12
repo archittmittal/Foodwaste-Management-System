@@ -1,6 +1,6 @@
-# Food Share (DSA Project)
+## Food Waste Management System
 
-This workspace contains a static HTML/CSS/JS frontend that uses Firebase for authentication and Firestore to store user and food item data. It also includes several C modules implementing common DSA structures and algorithms.
+> A web platform to connect food donors and receivers, reduce food waste, and streamline donation logistics.
 
 Web files:
 - `index.html` - landing page with links
@@ -53,4 +53,88 @@ gcc c/stack.c -o c/stack && ./c/stack
 gcc c/queue.c -o c/queue && ./c/queue
 gcc c/linked_list.c -o c/linked_list && ./c/linked_list
 gcc c/sorting.c -o c/sorting && ./c/sorting
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Python (Flask)
+- **Database:** MySQL
+- **Other:** Static web pages, Flask session management
+
+---
+
+## 🗂 Project Structure
+
+- `index.html` — Landing page
+- `sign-up.html` — Signup form
+- `donor_home.html` — Donor dashboard
+- `receiver_home.html` — Receiver dashboard
+- `app.py` — Flask backend
+- `database.sql` — MySQL schema
+- `style.css`, `dashboard.css` — Styling
+- `script.js` — Frontend logic
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+graph TD
+	 A[User Signup/Login] --> B{Role Selection}
+	 B --> C[Donor Dashboard]
+	 B --> D[Receiver Dashboard]
+	 C --> E[Add Food Item]
+	 C --> F[View Donations]
+	 D --> G[View Available Food]
+	 D --> H[Request Food]
+	 A --> I[MySQL Database]
+	 C --> I
+	 D --> I
+	 I --> J[Data Storage]
+	 J --> K[User Info]
+	 J --> L[Food Items]
+	 J --> M[Requests]
+	 A --> N[Flask Backend]
+	 N --> I
+	 N --> O[HTML/CSS/JS Frontend]
+	 O --> P[Static Pages]
+	 O --> Q[Dynamic Forms]
+	 O --> R[Dashboard Views]
+```
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the repo:
+	```bash
+	git clone https://github.com/archittmittal/Foodwaste-Management-System.git
+	```
+2. Set up MySQL and update credentials in `app.py`.
+3. Run Flask server:
+	```bash
+	python app.py
+	```
+4. Open `index.html` in your browser or use a static server:
+	```bash
+	python3 -m http.server 5173
+	# then open http://localhost:5173/index.html
+	```
+
+---
+
+## 📦 Features
+
+- Donor and receiver signup/login
+- Donor dashboard: add/view donations
+- Receiver dashboard: view/request food
+- Secure session management
+- MySQL data storage
+
+---
+
+## 📄 License
+
+MIT License
 ```
